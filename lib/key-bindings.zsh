@@ -63,6 +63,11 @@ if [[ -n "${terminfo[kend]}" ]]; then
   bindkey -M vicmd "${terminfo[kend]}"  end-of-line
 fi
 
+# [Tab] - move through the completion menu forwards
+bindkey -M viins '^I' menu-complete
+bindkey -M vicmd '^I' menu-complete
+bindkey -M emacs '^I' menu-complete
+
 # [Shift-Tab] - move through the completion menu backwards
 if [[ -n "${terminfo[kcbt]}" ]]; then
   bindkey -M emacs "${terminfo[kcbt]}" reverse-menu-complete
